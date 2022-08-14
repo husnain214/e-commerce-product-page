@@ -638,7 +638,7 @@ nav {
 }
 
 .hamburgerAnimation2 {
-    animation: hamburgerAnimate2 .5s ease-in forwards;
+    animation: hamburgerAnimate2 .3s ease-in forwards;
 }
 
 @keyframes hamburgerAnimate2 {
