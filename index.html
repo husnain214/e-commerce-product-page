@@ -1,198 +1,631 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Kumbh Sans', sans-serif;
+}
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
-        
-  <title>E-commerce product page</title>
-</head>
-<body>
-  <nav>
-    <div class="left-part">
-      <div class="hamburger">
-        <img src="./images/icon-menu.svg" alt="hamburger menu icon">
-      </div>
-  
-      <div class="nav-brand">
-        <img src="./images/logo.svg" alt="company logo">
-      </div>
+html, body {
+    min-height: 100%;
+    min-width: 100%;
+    background: hsl(0, 0%, 100%);
+}
 
-      <div class="nav-menu">
-        <ul>
-          <li><a href="#">Collections</a></li>
-          <li><a href="#">Men</a></li>
-          <li><a href="#">Women</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-      </div>
-    </div>
+ul {
+    list-style: none;
+}
 
-    <div class="right-part">
-      <div class="cart-btn" data-count="0">
-        <img src="./images/icon-cart.svg" alt="shopping cart">
-      </div>
-  
-      <div class="profile">
-        <img src="./images/image-avatar.png" alt="profile picture">
-      </div>
-    </div>
-  </nav>
+a, li, button, .main-image, .cart-btn, .profile, .nav-brand {
+    cursor: pointer;
+}
 
-  <div class="hidden cart">
-    <div class="head">
-      <h4>Cart</h4>
-    </div>
+a {
+    text-decoration: none;
+}
 
-    <div class="empty">
-      <p>Your Cart is empty.</p>
-    </div>
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
 
-    <div class="cart-content"> 
-      <ul class="selected-products"></ul>
+.hidden {
+    display: none!important;
+}
 
-      <button class="checkout-cart">Checkout</button>
-    </div>
-  </div>
+/* ================ NAVBAR ================ */
 
-  <div class="hidden hamburger-div">
-    <div class="menu">
-      <button class="cross-btn">
-        <img src="./images/icon-close.svg" alt="close button">
-      </button>
-  
-      <ul>
-        <li><a href="#">Collections</a></li>
-        <li><a href="#">Men</a></li>
-        <li><a href="#">Women</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-    </div>
-  </div>
+nav {
+    padding-inline: 1.3em;
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+    background: hsl(0, 0%, 100%);
+}
 
-  <section class="product-section">
-    <div class="carousel-container">
-      <button id="prevBtn">
-          <img src="./images/icon-previous.svg" alt="">
-      </button>
-  
-      <button id="nextBtn">
-          <img src="./images/icon-next.svg" alt="">
-      </button>
-      <div class="carousel-slide">
-        <img src="./images/image-product-1.jpg" alt="">
-        <img src="./images/image-product-2.jpg" alt="">
-        <img src="./images/image-product-3.jpg" alt="">
-        <img src="./images/image-product-4.jpg" alt="">
-      </div>
-    </div>
+.nav-menu {
+    align-self: flex-end;
+    height: 100%;
+    display: none;
+}
 
-    <div class="desktop-image">
-      <div class="main-image">
-        <img src="./images/image-product-1.jpg" alt="product 1" id="product1">
-        <img src="./images/image-product-2.jpg" alt="product 2" id="product2">
-        <img src="./images/image-product-3.jpg" alt="product 3" id="product3">
-        <img src="./images/image-product-4.jpg" alt="product 4" id="product4">
-      </div>
+.nav-menu ul {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    border-bottom: 5px solid transparent;
+}
 
-      <div class="img-links">
-        <a href="#product1">
-          <div class="thumbnail" id="thumbnail1">
-            <img src="./images/image-product-1-thumbnail.jpg" alt="thumbnail">
-          </div>
-        </a>
-        <a href="#product2">
-          <div class="thumbnail" id="thumbnail2">
-            <img src="./images/image-product-2-thumbnail.jpg" alt="thumbnail">
-          </div>
-        </a>
-        <a href="#product3">
-          <div class="thumbnail" id="thumbnail3">
-            <img src="./images/image-product-3-thumbnail.jpg" alt="thumbnail">
-          </div>
-        </a>
-        <a href="#product4">
-          <div class="thumbnail" id="thumbnail4">
-            <img src="./images/image-product-4-thumbnail.jpg" alt="thumbnail">
-          </div>
-        </a>
-      </div>
+.nav-menu ul li {
+    margin: 1em;
+    padding: 1.8em 0;
+    border-bottom: 5px solid transparent; 
+    transition: .3s;
+}
 
-      <div class="hidden overlay-image">
-        <div class="image-box">
-          <button class="cross-btn2">
-            <img src="./images/icon-close.svg" alt="close button">
-          </button>
+.nav-menu ul li:hover {
+    border-bottom: 5px solid hsl(26, 100%, 55%);
+}
 
-          <div class="desktop-image">
-            <div class="main-image">
-              <img src="./images/image-product-1.jpg" alt="product 1" id="product12">
-              <img src="./images/image-product-2.jpg" alt="product 2" id="product22">
-              <img src="./images/image-product-3.jpg" alt="product 3" id="product32">
-              <img src="./images/image-product-4.jpg" alt="product 4" id="product42">
-            </div>
-      
-            <div class="img-links">
-              <a href="#product12">
-                <div class="thumbnail" id="thumbnail1">
-                  <img src="./images/image-product-1-thumbnail.jpg" alt="thumbnail">
-                </div>
-              </a>
-              <a href="#product22">
-                <div class="thumbnail" id="thumbnail2">
-                  <img src="./images/image-product-2-thumbnail.jpg" alt="thumbnail">
-                </div>
-              </a>
-              <a href="#product32">
-                <div class="thumbnail" id="thumbnail3">
-                  <img src="./images/image-product-3-thumbnail.jpg" alt="thumbnail">
-                </div>
-              </a>
-              <a href="#product42">
-                <div class="thumbnail" id="thumbnail4">
-                  <img src="./images/image-product-4-thumbnail.jpg" alt="thumbnail">
-                </div>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div> 
-    </div>
+.nav-menu ul li:hover a {
+    color: hsl(220, 13%, 13%);
+}
 
-    <div class="hero-text">
-      <p class="branding">Sneaker Company</p>
-      <h1 class="product-name">Fall Limited Edition Sneakers</h1>
-      <p class="subtitle">These low-profile sneakers are your perfect casual wear companion. Featuring a 
-        durable rubber outer sole, they'll withstand everything the weather can offer.</p>
+.nav-menu ul li a {
+    color: rgba(0, 0, 0, 0.575);
+    font-weight: 500;
+}
 
-      <div class="pricing-div">
-        <p class="price">$<span>125</span>.00</p>
-        <p class="discount">50%</p>
-        <p class="original-price">$250.00</p>
-      </div>
+.left-part, .right-part {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
 
-      <div class="amount-section">
-        <button class="minus">
-          <img src="./images/icon-minus.svg" alt="minus">
-        </button>
+.left-part {
+    flex-basis: 50%;
+}
 
-        <p class="amount">0</p>
+.right-part {
+    flex-basis: 25%;
+}
 
-        <button class="plus">
-          <img src="./images/icon-plus.svg" alt="plus">
-        </button>
-      </div>
+.cart-btn {
+    padding: .5em;
+    border-radius: 2em;
+    transition: .3s ease-in-out;
+    position: relative;
+}
 
-      <button class="checkout">Add to cart</button> 
-    </div>
-  </section>
-</body>
-</html>
+.cart-btn:hover {
+    background-color: hsl(25, 100%, 94%);
+}
+
+.cart-btn::before {
+    content: attr(data-count);
+    position: absolute;
+    height: 15px;
+    width: 20px;
+    background-color: hsl(26, 100%, 55%);
+    border-radius: 40%;
+    left: 20px;
+    bottom: 25px;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: hsl(0, 0%, 100%);
+}
+
+.profile {
+    height: 2.5em;
+    outline: 3px solid transparent;
+    border-radius: 5em;
+    transition: .2s;
+}
+
+.profile:hover {
+    outline: 3px solid hsla(26, 100%, 55%, 0.719);
+}
+
+.profile img{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+.hamburger-div {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.315);
+    z-index: 999;
+}
+
+.hamburger-div .menu {
+    background: hsl(0, 0%, 100%);
+    width: 70%;
+    height: 100%;
+    padding: 1.5em 0 0 1.5em;
+}
+
+.cross-btn {
+    background: none;
+    border: none;
+    height: 20px;
+    margin-bottom: 3em;
+}
+
+.menu li {
+    margin-bottom: 1em;
+}
+
+.menu li a {
+    font-weight: 700;
+    font-size: 1.3em;
+    color: hsl(0, 0%, 0%, 75%);
+}
+
+.cart {
+    opacity: 0;
+    position: fixed;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 250px;
+    width: min(80vw, 350px);
+    z-index: 1001;
+    background-color: inherit;
+    box-sizing: border-box;
+    border-radius: .5em;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.cart .head {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.158);
+    font-size: 1.2em;
+    padding: 1em;
+}
+
+.empty {
+    align-self: center;
+    margin: auto 0;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.562);
+}
+
+.cart-content {
+    padding: 1em;
+}
+
+.selected-products li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1em;
+}
+
+.product-image {
+    height: 50px;
+    width: 50px;
+    border-radius: 7px;
+    overflow: hidden;
+}
+
+.product-image img {
+    height: 100%;
+    object-fit: contain;
+}
+
+.details {
+    line-height: 1.5em;
+    align-self: center;
+}
+
+.details > * {
+    font-size: 15px;
+    color: rgb(63, 63, 63);
+    font-weight: 500;
+}
+
+.total-price {
+    color: hsl(220, 13%, 13%);
+    font-weight: 700;
+}
+
+.delete {
+    border: none;
+    background-color: transparent;
+}
+
+.checkout-cart {
+    margin-top: 30px;
+}
+
+
+/* ================ PRODUCT SECTION ================ */
+
+.product-section {
+    display: flex;
+    flex-flow: row wrap;
+    height: auto;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.desktop-image {
+    width: 375px;
+    display: none;
+}
+
+.main-image {
+    display: flex;
+    height: 375px;
+    width: 375px;
+    scroll-behavior: smooth;
+    overflow: hidden;
+    margin-bottom: 2em;
+    border-radius: 1em;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    margin-right: 0px!important;
+}
+
+.main-image img {
+    object-fit: contain;
+    height: 375px;
+    width: 375px;
+}
+
+.img-links {
+    display: flex;
+    justify-content: space-between;
+    width: 375px;
+}
+
+.thumbnail {
+    height: 80px;
+    width: 80px;
+    border-radius: 1.3em;
+    border: 2px solid transparent;
+    transition: .2s ease-in-out;
+    overflow: hidden;
+    position: relative;
+}
+
+.thumbnail:hover::before {
+    content:'';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.151);
+}
+
+.thumbnail img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.thumbnail:hover {
+    border: 2px solid hsl(26, 100%, 55%);
+    box-shadow: inset 0 0 0 2000px rgba(255, 255, 255, 0.3);
+}
+
+.overlay-image {
+    opacity: 0;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.726);
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-box {
+    height: fit-content;
+    width: fit-content;
+}
+
+.cross-btn2 {
+    display: block;
+    margin-left: auto;
+    margin-bottom: 2em;
+    background-color: transparent;
+    border: none;
+}
+
+.overlay-image .image-box .desktop-image .img-links a .thumbnail {
+    border: 2px solid transparent;
+    border-radius: 25px;
+}
+
+.overlay-image .image-box .desktop-image .img-links a .thumbnail:hover {
+    border: 2px solid hsl(26, 100%, 55%);
+}
+
+.carousel-container {
+    width: 375px;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+    margin: auto;
+}
+
+.carousel-slide {
+    display: flex;
+}
+
+.carousel-slide img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+.carousel-container button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-container button img {
+    max-height: 40%;
+}
+
+#prevBtn, #nextBtn {
+    position: absolute;
+    top: 50%;
+    z-index: 10;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    border: none;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+}
+
+#prevBtn {
+    display: none;
+    left: 5%;
+}
+
+#nextBtn {
+    right: 5%;
+}
+
+/* ================ PRODUCT DETAIL SECTION ================ */
+
+.hero-text {
+    padding: 1em 2em;
+}
+
+.hero-text > * {
+    margin-bottom: .8em;
+    color: hsl(220, 13%, 13%);
+}
+
+.branding {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+    font-size: .9em;
+    color: hsl(26, 100%, 55%);
+}
+
+.product-name {
+    font-size: 2em;
+}
+
+.subtitle {
+    color: rgba(0, 0, 0, 0.507);
+    font-weight: 700;
+}
+
+.pricing-div {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    width: 100%;
+}
+
+.price {
+    font-weight: 700;
+    font-size: 2em;
+}
+
+.discount {
+    margin-left: 2.3em;
+    margin-right: auto;
+    background: hsl(25, 100%, 94%);
+    color: hsl(26, 100%, 55%);
+    padding: .2em .6em;
+    border-radius: .5em;
+}
+
+.original-price {
+    color: rgba(0, 0, 0, 0.377);
+    font-size: 1em;
+    text-decoration: line-through;
+    text-decoration-color: rgba(0, 0, 0, 0.26);
+    text-decoration-thickness: 1.5px;
+    font-weight: 700;
+}
+
+.amount-section {
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+    background-color: hsla(0, 0%, 0%, 0.041);
+    border-radius: .5em;
+}
+
+.amount-section button {
+    border: none;
+    background: transparent;
+}
+
+.amount {
+    font-weight: 700;
+}
+
+.checkout, .checkout-cart {
+    width: 100%;
+    padding: 1em;
+    background-color: hsl(26, 100%, 55%);
+    color: hsl(0, 0%, 100%); 
+    font-size: 1em;
+    font-weight: 700;
+    border: none;
+    border-radius: .5em;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    transition: .3s;
+}
+
+.checkout:hover, .checkout-cart:hover {
+    background: hsl(26, 91%, 65%);
+}
+
+/* ================ MEDIA QUERIES ================ */
+
+@media (min-width: 700px) {
+    nav {
+        margin-bottom: 3em;
+        height: 80px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.171);
+        width: 90%;
+        margin-inline: auto;
+    }
+
+    .left-part {
+        flex-basis: 90%;
+        gap: 5em;
+    }
+
+    .nav-brand {
+        flex-basis: 20%;
+    }
+
+    .right-part {
+        flex-basis: 10%;
+    }
+
+    .nav-menu {
+        flex-basis: 70%;
+    }
+
+    .hamburger, .carousel-container {
+        display: none;
+    }
+
+    .nav-menu, .desktop-image {
+        display: block;
+    }
+
+    .product-section {
+        justify-content: center;
+    }    
+}
+
+@media (min-width: 990px) {
+    nav {
+        width: 60%;
+    }
+
+    .left-part {
+        flex-basis: 85%;
+        justify-content: flex-start;
+        gap: 5em;
+    }
+   
+    .right-part {
+        justify-content: space-around;
+        flex-basis: 15%;
+    }
+
+    .product-section {
+        gap: 3em;
+    }
+
+    .hero-text {
+        width: 25em;
+    }
+
+    .amount-section {
+        width: 30%;
+        float: left;
+    }
+
+    .checkout { 
+        width: 50%;
+        float: right;
+        margin-left: .3em;
+    }
+
+    .cart {
+        top: 35%;
+        left: 80%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+/* ================ ANIMATIONS ================ */
+
+.cartAnimation {
+    animation: cartAnimate 0.3s ease-in-out forwards;
+}
+
+@keyframes cartAnimate {
+    0% {
+        top: 30%;
+    }
+
+    100% {
+        top: 35%;
+        opacity: 1;
+    }
+}
+
+.opacityAnimationShow {
+    animation: opacityAnimateShow 0.2s ease-in-out forwards;
+}
+
+@keyframes opacityAnimateShow {
+    100% {
+        opacity: 1;
+    }
+}
+
+.opacityAnimationHide {
+    animation: opacityAnimateHide 12s ease-in-out forwards;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
