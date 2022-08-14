@@ -576,6 +576,24 @@ nav {
         left: 80%;
         transform: translate(-50%, -50%);
     }
+
+    .product-image {
+        margin-right: 1em;
+    }
+}
+
+@media (max-width: 375px) {
+    .left-part {
+        gap: 1em;
+    }
+
+    .right-part {
+        gap: .5em;
+    }
+
+    .cart {
+        width: 90%;
+    }
 }
 
 /* ================ ANIMATIONS ================ */
@@ -607,6 +625,26 @@ nav {
 
 .opacityAnimationHide {
     animation: opacityAnimateHide 12s ease-in-out forwards;
+}
+
+.hamburgerAnimation1 {
+    animation: hamburgerAnimate1 .5s backwards;
+}
+
+@keyframes hamburgerAnimate1 {
+    0% {
+        transform: translateX(-300px);
+    }
+}
+
+.hamburgerAnimation2 {
+    animation: hamburgerAnimate2 .5s ease-in forwards;
+}
+
+@keyframes hamburgerAnimate2 {
+    100% {
+        transform: translateX(-300px);
+    }
 }
 
 
