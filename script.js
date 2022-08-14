@@ -90,7 +90,7 @@ crossBtn.addEventListener ("click", () => {
     hamburgerInnerMenu.classList.remove ("hamburgerAnimation1")
     hamburgerInnerMenu.classList.add ("hamburgerAnimation2")
     
-    setTimeout (() => hamburgerMenu.classList.add ("hidden"), 500)
+    setTimeout (() => hamburgerMenu.classList.add ("hidden"), 300)
 })
 
 crossBtn2.addEventListener ("click", () => {
