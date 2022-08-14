@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+        
+  <title>E-commerce product page</title>
+</head>
+<body>
+  <nav>
+    <div class="left-part">
+      <div class="hamburger">
+        <img src="./images/icon-menu.svg" alt="hamburger menu icon">
+      </div>
+  
+      <div class="nav-brand">
+        <img src="./images/logo.svg" alt="company logo">
+      </div>
+
+      <div class="nav-menu">
+        <ul>
+          <li><a href="#">Collections</a></li>
+          <li><a href="#">Men</a></li>
+          <li><a href="#">Women</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="right-part">
+      <div class="cart-btn" data-count="0">
+        <img src="./images/icon-cart.svg" alt="shopping cart">
+      </div>
+  
+      <div class="profile">
+        <img src="./images/image-avatar.png" alt="profile picture">
+      </div>
+    </div>
+  </nav>
+
+  <div class="hidden cart">
+    <div class="head">
+      <h4>Cart</h4>
+    </div>
+
+    <div class="empty">
+      <p>Your Cart is empty.</p>
+    </div>
+
+    <div class="cart-content"> 
+      <ul class="selected-products"></ul>
+
+      <button class="checkout-cart">Checkout</button>
+    </div>
+  </div>
+
+  <div class="hidden hamburger-div">
+    <div class="menu">
+      <button class="cross-btn">
+        <img src="./images/icon-close.svg" alt="close button">
+      </button>
+  
+      <ul>
+        <li><a href="#">Collections</a></li>
+        <li><a href="#">Men</a></li>
+        <li><a href="#">Women</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <section class="product-section">
+    <div class="carousel-container">
+      <button id="prevBtn">
+          <img src="./images/icon-previous.svg" alt="">
+      </button>
+  
+      <button id="nextBtn">
+          <img src="./images/icon-next.svg" alt="">
+      </button>
+      <div class="carousel-slide">
+        <img src="./images/image-product-1.jpg" alt="">
+        <img src="./images/image-product-2.jpg" alt="">
+        <img src="./images/image-product-3.jpg" alt="">
+        <img src="./images/image-product-4.jpg" alt="">
+      </div>
+    </div>
+
+    <div class="desktop-image">
+      <div class="main-image">
+        <img src="./images/image-product-1.jpg" alt="product 1" id="product1">
+        <img src="./images/image-product-2.jpg" alt="product 2" id="product2">
+        <img src="./images/image-product-3.jpg" alt="product 3" id="product3">
+        <img src="./images/image-product-4.jpg" alt="product 4" id="product4">
+      </div>
+
+      <div class="img-links">
+        <a href="#product1">
+          <div class="thumbnail" id="thumbnail1">
+            <img src="./images/image-product-1-thumbnail.jpg" alt="thumbnail">
+          </div>
+        </a>
+        <a href="#product2">
+          <div class="thumbnail" id="thumbnail2">
+            <img src="./images/image-product-2-thumbnail.jpg" alt="thumbnail">
+          </div>
+        </a>
+        <a href="#product3">
+          <div class="thumbnail" id="thumbnail3">
+            <img src="./images/image-product-3-thumbnail.jpg" alt="thumbnail">
+          </div>
+        </a>
+        <a href="#product4">
+          <div class="thumbnail" id="thumbnail4">
+            <img src="./images/image-product-4-thumbnail.jpg" alt="thumbnail">
+          </div>
+        </a>
+      </div>
+
+      <div class="hidden overlay-image">
+        <div class="image-box">
+          <button class="cross-btn2">
+            <img src="./images/icon-close.svg" alt="close button">
+          </button>
+
+          <div class="desktop-image">
+            <div class="main-image">
+              <img src="./images/image-product-1.jpg" alt="product 1" id="product12">
+              <img src="./images/image-product-2.jpg" alt="product 2" id="product22">
+              <img src="./images/image-product-3.jpg" alt="product 3" id="product32">
+              <img src="./images/image-product-4.jpg" alt="product 4" id="product42">
+            </div>
+      
+            <div class="img-links">
+              <a href="#product12">
+                <div class="thumbnail" id="thumbnail1">
+                  <img src="./images/image-product-1-thumbnail.jpg" alt="thumbnail">
+                </div>
+              </a>
+              <a href="#product22">
+                <div class="thumbnail" id="thumbnail2">
+                  <img src="./images/image-product-2-thumbnail.jpg" alt="thumbnail">
+                </div>
+              </a>
+              <a href="#product32">
+                <div class="thumbnail" id="thumbnail3">
+                  <img src="./images/image-product-3-thumbnail.jpg" alt="thumbnail">
+                </div>
+              </a>
+              <a href="#product42">
+                <div class="thumbnail" id="thumbnail4">
+                  <img src="./images/image-product-4-thumbnail.jpg" alt="thumbnail">
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div> 
+    </div>
+
+    <div class="hero-text">
+      <p class="branding">Sneaker Company</p>
+      <h1 class="product-name">Fall Limited Edition Sneakers</h1>
+      <p class="subtitle">These low-profile sneakers are your perfect casual wear companion. Featuring a 
+        durable rubber outer sole, they'll withstand everything the weather can offer.</p>
+
+      <div class="pricing-div">
+        <p class="price">$<span>125</span>.00</p>
+        <p class="discount">50%</p>
+        <p class="original-price">$250.00</p>
+      </div>
+
+      <div class="amount-section">
+        <button class="minus">
+          <img src="./images/icon-minus.svg" alt="minus">
+        </button>
+
+        <p class="amount">0</p>
+
+        <button class="plus">
+          <img src="./images/icon-plus.svg" alt="plus">
+        </button>
+      </div>
+
+      <button class="checkout">Add to cart</button> 
+    </div>
+  </section>
+</body>
+</html>
