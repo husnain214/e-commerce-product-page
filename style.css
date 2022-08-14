@@ -552,6 +552,10 @@ nav {
         flex-basis: 15%;
     }
 
+    .product-section {
+        gap: 3em;
+    }
+
     .hero-text {
         width: 25em;
     }
