@@ -1,4 +1,5 @@
 const hamburgerMenu = document.querySelector (".hamburger-div")
+const hamburgerInnerMenu = document.querySelector (".hamburger-div .menu")
 const cart = document.querySelector (".cart")
 const heroText = document.querySelector (".hero-text")
 const carouselSlide = document.querySelector (".carousel-slide")
@@ -21,8 +22,10 @@ const checkout = document.querySelector (".checkout")
 
 let counter  = 0
 let tempCount  = 0
-const size = 375
 let cartSize = 0
+let size = 0
+
+window.innerWidth < 375 ? size = window.innerWidth : size = 375
 
 let Cart = []
 
@@ -33,19 +36,19 @@ function renderCart () {
 
     for (let i = 0; i  < Cart.length; i++) {
         content += `<li>
-                            <div class="product-image">
-                                <img src="./images/image-product-${i + 1}-thumbnail.jpg" alt="product image">
-                            </div>
-                                
-                            <div class="details">
-                                <h6 class="product-title">${Cart[i].name}</h6>
-                                <span class="price-cart">$${Cart[i].price}.00 x ${Cart[i].count}</span>
-                                <span class="total-price">$${parseInt(Cart[i].price) * Cart[i].count}.00</span>
-                            </div>
+                        <div class="product-image">
+                            <img src="./images/image-product-${i + 1}-thumbnail.jpg" alt="product image">
+                        </div>
                             
-                            <button class="delete">
-                                <img src="./images/icon-delete.svg" alt="delete btn" id=${i} class="deleteBtn">
-                            </button>
+                        <div class="details">
+                            <h6 class="product-title">${Cart[i].name}</h6>
+                            <span class="price-cart">$${Cart[i].price}.00 x ${Cart[i].count}</span>
+                            <span class="total-price">$${parseInt(Cart[i].price) * Cart[i].count}.00</span>
+                        </div>
+                        
+                        <button class="delete">
+                            <img src="./images/icon-delete.svg" alt="delete btn" id=${i} class="deleteBtn">
+                        </button>
                     </li>`
     }
 
@@ -73,12 +76,21 @@ document.body.addEventListener("click", event => {
 })
 
 const renderAmount = quantity => amount.innerHTML = quantity
-hamburgerBtn.addEventListener ("click", () => hamburgerMenu.classList.remove ("hidden"))
+
 plus.addEventListener ("click", () => renderAmount (++tempCount))
-minus.addEventListener ("click", () => (Cart[cartSize].count >= 1) ? renderAmount (--tempCount) : alert("Error!"))
+minus.addEventListener ("click", () => tempCount - 1 >= 0 ? renderAmount (--tempCount) : alert("Error!"))
+
+hamburgerBtn.addEventListener ("click", () => {
+    
+    hamburgerMenu.classList.remove ("hidden")
+    hamburgerInnerMenu.classList.add ("hamburgerAnimation1")
+})
 
 crossBtn.addEventListener ("click", () => {
-    hamburgerMenu.classList.add ("hidden")
+    hamburgerInnerMenu.classList.remove ("hamburgerAnimation1")
+    hamburgerInnerMenu.classList.add ("hamburgerAnimation2")
+    
+    setTimeout (() => hamburgerMenu.classList.add ("hidden"), 500)
 })
 
 crossBtn2.addEventListener ("click", () => {
