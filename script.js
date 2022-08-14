@@ -81,7 +81,7 @@ plus.addEventListener ("click", () => renderAmount (++tempCount))
 minus.addEventListener ("click", () => tempCount - 1 >= 0 ? renderAmount (--tempCount) : alert("Error!"))
 
 hamburgerBtn.addEventListener ("click", () => {
-    
+    hamburgerInnerMenu.classList.remove ("hamburgerAnimation2")
     hamburgerMenu.classList.remove ("hidden")
     hamburgerInnerMenu.classList.add ("hamburgerAnimation1")
 })
